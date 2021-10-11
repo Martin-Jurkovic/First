@@ -1,26 +1,28 @@
+#include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <string>
-#include <vector>
 
-#ifndef RADIO_BUTTON_H
-#define RADIO_BUTTON_H
+#ifndef PENGUIN_HPP
+#define PENGUIN_HPP
 
-class RadioButton {
- private:
-   std::string button_text;
-   bool selection;
- public:
-   RadioButton(std::string x);
-   void SetText(std::string x);
-   std::string GetText();
-   void SetSelected(bool select);
-   bool IsSelected();
+class Penguin {
+  private:
+    std::string _name;
+    std::string breed;
+    double _weight;
+  public:
+    Penguin();
+    Penguin(std::string name, double weight);
+    std::string setName(std::string name);
+    void getName();
+    std::string setBreed(std::string breed);
+    void getBreed();
+    double setWeight(double weight);
+    void getWeight();
+    double monthlyCost(double pounds);
+    ~Penguin();
+    
 };
 
-RadioButton::RadioButton(std::string);
-void RadioButton::SetText(std::string x);
-
-void SelectRadioButton(std::vector<RadioButton> buttons, int num);
-void PrintRadioButtons(const std::vector<RadioButton> x);
 #endif
-// RADIO_BUTTON_H

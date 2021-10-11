@@ -1,73 +1,54 @@
+#include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <string>
-#include <vector>
 
-class RadioButton {
- private:
-   std::string button_text;
-   bool selection;
- public:
-   RadioButton(std::string x);
+class Penguin {
+  private:
+    std::string _name;
+    std::string breed;
+    double _weight;
+  public:
+    Penguin() {
+      this->_name = "Tuxedo Sam";
+      this->_breed = "Emperor";
+      this->_weight = 67.25;
+    }
 
-   void SetText(std::string x) {
-     this->button_text = x;
-   }
+    Penguin(std::string name, double weight) {
+      this->_name = name;
+      this->_breed = "Emperor";
+      this->_weight = weight;
+    }
 
-   std::string GetText() {
-     return this->button_text;
-   }
+    std::string setName(std::string name) {
+      this->_name = name;
+    }
 
-   void SetSelected(bool select) {
-     if(select) {
-       this->selection = true;
-     } else {
-       this->selection = false;
-     }
-   }
+    void getName() {
+      return this->_name;
+    }
 
-   bool IsSelected() {
-     return this->selection;
-   }
+    std::string setBreed(std::string breed) {
+      this->_breed = name;
+    }
+
+    void getBreed() {
+      return this->_breed;
+    }
+
+    double setWeight(double weight) {
+      this->_weight = weight;
+    }
+
+    void getWeight() {
+      return this->_weight;
+    }
+
+    double monthlyCost(double pounds) {
+      return (1.67 * pounds) * 30;
+    }
+
+    ~Penguin();
+    
 };
-
-RadioButton::RadioButton(std::string x) {
-     SetSelected(false);
-     SetText(x);
-}
-void RadioButton::SetText(std::string x) {
-     this->button_text = x;
-}
-// Helper Functions
-void SelectRadioButton(std::vector<RadioButton> buttons, int num) {
-  for(int i = 0; i < buttons.size(); i++) {
-    buttons[i].SetSelected(false);
-  }
-  buttons[num].SetSelected(true);
-}
-
-void PrintRadioButtons(const std::vector<RadioButton> x) {
-  std::vector<RadioButton> buttons = x;
-  for(int i = 0; i < buttons.size(); i++) {
-    if(buttons[i].IsSelected()) {
-      std::cout << "(*) ";
-    } else {
-      std::cout << "( ) ";
-    }
-    std::cout << buttons[i].GetText() << std::endl;
-  }
-
-  bool select = false;
-  int index;
-  for(int i = 0; buttons.size(); i++) {
-    if(buttons[i].IsSelected()) {
-      select = true;
-      index = i;
-    }
-  }
-  if(select) {
-    std::cout << "The button at index " << index << " is selected" << std::endl;
-  } else {
-    std::cout << "No button selected" << std::endl;
-  }
-}
-
